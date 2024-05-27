@@ -24,22 +24,11 @@ def logic(guess):
         flash(f"The number is higher than your guess. {guess}{pick}")
         attempts += 1
 
-def process_user_input(guess):
-    global message
-    if guess != '':
-        guess = int(guess)
-        if guess >= 1 and guess <= 100:
-            message = logic(guess)
-        else:
-            flash("You have to enter a number between 1 and 100!")
-    else:
-        flash("You have to enter a number!")
-
 def reset():
     global playing, pick, attempts
     playing = True
     pick = randint(1, 100)
-    attempts = 0
+    attempts = 1
 
 # Flask init
 app = Flask(__name__)
