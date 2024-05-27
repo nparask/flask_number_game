@@ -1,0 +1,3 @@
+The number was 10.	Number of attempts was: 3	The guesses the user made were: 1 21 10 
+The number was 41.	Number of attempts was: 2	The guesses the user made were: 3, 41, 
+The number was 48.	Number of attempts was: 5	The guesses the user made were: 3, 41, 1, 6, 9, 100, 48, 
