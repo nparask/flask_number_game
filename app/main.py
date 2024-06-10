@@ -20,18 +20,19 @@ def logic(guess):
             flash(f"It took you {attempts} attempts to find it")
 
     elif guess > pick:
-        flash(f"The number is lower than your guess. {guess}{pick}")
+        flash(f"The number is lower than your guess.")
         attempts += 1
 
     else:
-        flash(f"The number is higher than your guess. {guess}{pick}")
+        flash(f"The number is higher than your guess.")
         attempts += 1
 
 def reset():
-    global playing, pick, attempts
+    global playing, pick, attempts, guesses
     playing = True
     pick = randint(1, 100)
     attempts = 1
+    guesses = ""
 
 def save_stats():
     stats_file = open("app/stats.txt", "a")
