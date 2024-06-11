@@ -35,7 +35,7 @@ def reset():
     guesses = ""
 
 def save_stats():
-    stats_file = open("app/stats.txt", "a")
+    stats_file = open("stats.txt", "a")
     stats_file.write(f"The number was {pick}.\tNumber of attempts was: {attempts}\tThe guesses the user made were: {guesses}\n")
     stats_file.close()
 
