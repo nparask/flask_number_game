@@ -37,9 +37,12 @@ def reset():
 
 #Saves the statistics from the previous game to stats.txt
 def save_stats():
-    stats_file = open("stats.txt", "a")
-    stats_file.write(f"The number was {pick}.\tNumber of attempts was: {attempts}\tThe guesses the user made were: {guesses}\n")
-    stats_file.close()
+    try:
+        stats_file = open("stats.txt", "a")
+        stats_file.write(f"The number was {pick}.\tNumber of attempts was: {attempts}\tThe guesses the user made were: {guesses}\n")
+        stats_file.close()
+    except PermissionError:
+        print("Could not access the stats.txt file\n")
 
 # Flask init
 app = Flask(__name__)
