@@ -27,6 +27,7 @@ def logic(guess):
         flash(f"The number is higher than your guess.")
         attempts += 1
 
+#Runs when the user chooses to play again, resets all vars and picks a new number
 def reset():
     global playing, pick, attempts, guesses
     playing = True
@@ -34,6 +35,7 @@ def reset():
     attempts = 1
     guesses = ""
 
+#Saves the statistics from the previous game to stats.txt
 def save_stats():
     stats_file = open("stats.txt", "a")
     stats_file.write(f"The number was {pick}.\tNumber of attempts was: {attempts}\tThe guesses the user made were: {guesses}\n")
@@ -50,18 +52,18 @@ def main():
 
     ###########ChatGPT#########
     if request.method == "POST":
-        if 'input' in request.form:
-            guess = request.form["input"]
+        if 'input' in request.form: #If the user presses the "Submit" button
+            guess = request.form["input"] #Get the input from the user
             guesses = guesses + guess + ', '
             guess = int(guess)
 
-            message = logic(guess)
+            message = logic(guess) #Depending on the guess flash a different message on screen
 
-        elif 'reset' in request.form:
+        elif 'reset' in request.form: #If the user presses the "Play Again" button
             reset()
-            return redirect(url_for('main'))   
+            return redirect(url_for('main')) 
         
-    return render_template("index.html", message=message, playing=playing)
+    return render_template("index.html", message=message, playing=playing) #Give the parameters message and playing to index.html
     ############################
 
 if __name__ == "__main__":
